@@ -1,0 +1,25 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>View All Tools</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="col-md-12">
+	<form>
+		<table>
+			<tr th:each="currentTool : ${tools}">
+				<td th:text="${currentTool.toolID}" />
+				<td th:text="${currentTool.toolName}" />
+				<td th:text="${currentTool.toolPrice}" />
+				<td><a th:href="@{/edit/{id}(id=${currentTool.toolID})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentTool.toolID})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+	</div>
+	<a href="../addTool">Add A New Tool</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Add A Tool</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div align="center" class="col-md-12">
+		<h2>Add A Tool</h2>
+		<div class="col-md-6">
+			<form th:object="${newTool}" th:action="@{/update/{id}(id=${newTool.toolID})}" method="POST">
+				<div class="form-group">
+					<label for="toolName">Tool Name:</label> <input type="text" name="toolName" class="form-control" id="toolName" th:field="*{toolName}">
+					<p class="alert alert-danger" th:if="${#fields.hasErrors('toolName')}" th:errors="*{toolName}">
+				</div>
+				<div class="form-group">
+					<label for="toolPrice">Price:</label> <input type="text" name="toolPrice" class="form-control" id="toolPrice" th:field="*{toolPrice}">
+					<p class="alert alert-danger" th:if="${#fields.hasErrors('toolPrice')}" th:errors="*{toolPrice}">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
